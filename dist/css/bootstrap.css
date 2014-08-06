@@ -1366,31 +1366,51 @@ a.text-danger:hover {
   color: #fff;
   background-color: #337ab7;
 }
-a.bg-primary:hover {
+.bg-primary.list-group-item {
+  background-color: #337ab7;
+}
+.bg-primary.list-group-item:hover,
+.bg-primary:hover {
   background-color: #286090;
 }
 .bg-success {
   background-color: #dff0d8;
 }
-a.bg-success:hover {
+.bg-success.list-group-item {
+  background-color: #dff0d8;
+}
+.bg-success.list-group-item:hover,
+.bg-success:hover {
   background-color: #c1e2b3;
 }
 .bg-info {
   background-color: #d9edf7;
 }
-a.bg-info:hover {
+.bg-info.list-group-item {
+  background-color: #d9edf7;
+}
+.bg-info.list-group-item:hover,
+.bg-info:hover {
   background-color: #afd9ee;
 }
 .bg-warning {
   background-color: #fcf8e3;
 }
-a.bg-warning:hover {
+.bg-warning.list-group-item {
+  background-color: #fcf8e3;
+}
+.bg-warning.list-group-item:hover,
+.bg-warning:hover {
   background-color: #f7ecb5;
 }
 .bg-danger {
   background-color: #f2dede;
 }
-a.bg-danger:hover {
+.bg-danger.list-group-item {
+  background-color: #f2dede;
+}
+.bg-danger.list-group-item:hover,
+.bg-danger:hover {
   background-color: #e4b9b9;
 }
 .page-header {

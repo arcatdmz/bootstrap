@@ -2,7 +2,11 @@
 
 .bg-variant(@color) {
   background-color: @color;
-  a&:hover {
+  &.list-group-item {
+    background-color: @color;
+  }
+  &.list-group-item:hover,
+  &:hover {
     background-color: darken(@color, 10%);
   }
 }
