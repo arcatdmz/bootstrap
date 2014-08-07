@@ -372,6 +372,12 @@ module.exports = function (grunt) {
         })(),
         replacement: grunt.option('newver'),
         recursive: true
+      },
+      jqueryVersion: {
+        pattern: 'jQuery',
+        replacement: 'jQNew',
+        recursive: true,
+        path: '../js/'
       }
     },
 
@@ -434,7 +440,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify:core']);
+  grunt.registerTask('dist-js', ['concat', 'uglify', 'sed:jqueryVersion']);
 
   // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
@@ -449,7 +455,7 @@ module.exports = function (grunt) {
   // Version numbering task.
   // grunt change-version-number --oldver=A.B.C --newver=X.Y.Z
   // This can be overzealous, so its changes should always be manually reviewed!
-  grunt.registerTask('change-version-number', 'sed');
+  grunt.registerTask('change-version-number', 'sed:versionNumber');
 
   // task for building customizer
   grunt.registerTask('build-customizer', ['build-customizer-html', 'build-raw-files']);

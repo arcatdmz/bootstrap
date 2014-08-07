@@ -1,0 +1,85 @@
+#tool__bar {
+  .btn-group;
+}
+
+#edbtn__save {
+  .btn-primary;
+}
+
+#wiki__text {
+  font-family: monospace;
+}
+
+.dokuwiki textarea.edit {
+  .form-control;
+}
+
+#cke_wiki__text {
+  margin-bottom: @padding-small-vertical;
+}
+
+div.picker {
+  button.pickerbutton,
+  button.toolbutton {
+    background: transparent;
+
+    &:hover,
+    &:focus {
+      background: #ccc;
+    }
+  }
+}
+#picker2.picker button.pickerbutton,
+#picker2.picker button.toolbutton {
+    width: 20px;
+}
+
+.modal .preview {
+  th:after {
+    content: "Header";
+  }
+  td:after {
+    content: "content";
+  }
+}
+
+.dokuwiki #wiki__editbar {
+  .editButtons,
+  .summary {
+    display: block;
+    &:extend(.form-group);
+
+    span {
+      display: inline-block;
+      max-width: 100%; // Force IE8 to wrap long content (see https://github.com/twbs/bootstrap/issues/13141)
+      margin-bottom: 5px;
+      font-weight: bold;
+    }
+
+    #edit__summary {
+      .form-control;
+      font-weight: 400;
+    }
+
+    .nowrap[for="minoredit"] {
+      .checkbox;
+      span {
+        min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
+        padding-left: 20px;
+        margin-bottom: 0;
+        font-weight: normal;
+        cursor: pointer;
+      }
+    }
+  }
+}
+
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="week"],
+input[type="phone"],
+input[type="email"] {
+  .form-control;
+}

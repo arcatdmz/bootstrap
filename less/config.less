@@ -1,0 +1,58 @@
+#config__manager {
+  fieldset {
+    table-layout: fixed;
+    width: 100%;
+    &#_basic {
+      width: auto;
+    }
+  }
+  tr {
+    border-bottom: 1px solid @table-border-color;
+    .input,
+    &:hover td {
+      background-color: transparent;
+    }
+    .row;
+  }
+  td.label {
+    display: inline-block;
+    border: none;
+    text-overflow: ellipsis;
+    white-space: normal;
+    width: 50%;
+    span.outkey {
+      .label;
+      .label-info;
+      display: inline-block;
+      font-size: 10px;
+      margin-left: -11px;
+      margin-top: -15px;
+      a {
+        color: #fff;
+        &:hover,
+        &:focus {
+          text-decoration: none;
+        }
+      }
+    }
+    img {
+      display: inline;
+    }
+    label {
+      color: @text-color;
+      font-size: @font-size-base;
+      font-weight: 400;
+    }
+  }
+  td.value {
+    width: 50%;
+    // display: inline-block;
+    border: none;
+    float: right;
+    padding: 0;
+    margin: 0;
+  }
+  select {
+    .form-control;
+  }
+}

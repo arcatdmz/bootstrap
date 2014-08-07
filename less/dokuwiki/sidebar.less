@@ -1,0 +1,68 @@
+/* Sidebar
+ * Also see list-group.less */
+#IE8 .sidebar-page {
+  float: left;
+}
+
+.sidebar-page ul {
+  li {
+    list-style: none;
+  }
+  .li {
+    &:first-child {
+      .border-top-radius(0);
+    }
+    &:last-child {
+      border-bottom-width: 0;
+      .border-bottom-radius(0);
+    }
+  }
+  > li:first-child > .li {
+    .border-top-radius(@list-group-border-radius);
+  }
+  > li:last-child > .li {
+    margin-bottom: 0;
+    .border-bottom-radius(@list-group-border-radius);
+  }
+  ul {
+    display: none;
+    margin-left: 0;
+    margin-bottom: @padding-xs-vertical;
+    -webkit-padding-start: 0px;
+    padding: 0;
+    li {
+      list-style: none;
+    }
+    > li {
+      > .li {
+        padding: @padding-base-vertical @padding-base-horizontal;
+      }
+      &.level2 > .li:before,
+      &.level3 > .li:before,
+      &.level4 > .li:before,
+      &.level5 > .li:before {
+        content: "\25E6";
+        display: inline-block;
+        margin-right: @padding-xs-horizontal;
+      }
+      &.level3 > .li:before {
+        content: "\2022";
+        margin-left: @padding-xs-horizontal;
+      }
+      &.level4 > .li:before {
+        content: "\2023";
+        margin-left: (@padding-xs-horizontal * 2);
+      }
+      &.level5 > .li:before {
+        content: "\2043";
+        margin-left: (@padding-xs-horizontal * 3);
+      }
+    }
+  }
+
+  [class^="glyphicon-"],
+  [class*=" glyphicon-"] {
+    cursor: pointer;
+    margin-top: 2px;
+  }
+}
