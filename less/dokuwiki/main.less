@@ -2,7 +2,6 @@
   ul.idx {
     padding-left: @padding-large-horizontal;
   }
-
   a.urlextern {
     padding-left: 0;
     background-image: none;
@@ -17,10 +16,11 @@
       padding-left: 0;
     }
   }
-
   div.section_highlight {
     border-right-width: 0;
     margin-left: -0.5em;
+    left: -0.5em;
+    position: relative;
   }
 }
 
@@ -33,7 +33,7 @@
 
 #dw__register,
 #dw__login {
-    .text-left;
+  .text-left;
 }
 
 #dokuwiki__aside {
@@ -47,14 +47,10 @@
   }
 }
 
-#dokuwiki__footer {
-    margin-top: @padding-base-vertical;
-}
-
 label span {
-    margin-right: @padding-small-horizontal;
-    position: relative;
-    display: inline-block;
+  margin-right: @padding-small-horizontal;
+  position: relative;
+  display: inline-block;
 }
 
 
@@ -67,30 +63,29 @@ label span {
   margin-top: 55px;
 }
 
-.notifications {
-  margin-top: @padding-large-vertical;
-  margin-bottom: @padding-large-vertical;
-}
-
 #helpful-links .list-group-item-text {
   margin-bottom: @padding-xs-vertical;
 }
 
+.dokuwiki ul.idx,
+.notifications,
+.block,
 .skip-to-sidebar {
-  margin-bottom: @padding-large-horizontal;
+  margin-bottom: @padding-large-vertical;
+}
+
+#dokuwiki__footer,
+.notifications {
+  margin-top: @padding-large-vertical;
 }
 
 .form-horizontal {
-    margin-bottom: 0;
-}
-
-.block {
-    margin-bottom: @padding-large-horizontal;
+  margin-bottom: 0;
 }
 
 .license {
-    .text-muted;
-    .small;
+  .text-muted;
+  .small;
 }
 
 input[type="text"],
@@ -109,6 +104,25 @@ input[type="email"] {
   font-weight: normal;
 }
 
+img.media,
+img.img_detail{
+  .img-responsive();
+  .img-thumbnail;
+}
+
+#dokuwiki__detail div.img_detail h3 {
+  margin-top: 0;
+}
+
+.page {
+  h1:first-of-type {
+    .page-header;
+    margin-top: 20px;
+  }
+  img {
+    max-width: 100%;
+  }
+}
 
 @import "sidebar";
 @import "buttons";
