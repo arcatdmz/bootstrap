@@ -6,6 +6,7 @@
   a.urlextern {
     padding-left: 0;
     background-image: none;
+    word-wrap: break-word;
     .glyphicon-globe;
     &:before {
       .glyphicon;
@@ -35,14 +36,31 @@
     .text-left;
 }
 
+#dokuwiki__aside {
+  #IE6 & {
+    width: 23%;
+    margin: 0 2% 0 0;
+    padding: 0;
+  }
+  p {
+    margin: 0;
+  }
+}
+
+#dokuwiki__footer {
+    margin-top: @padding-base-vertical;
+}
+
+label span {
+    margin-right: @padding-small-horizontal;
+    position: relative;
+    display: inline-block;
+}
+
+
 #IE6 #dokuwiki__content {
   width: 75%;
   margin: 0;
-  padding: 0;
-}
-#IE6 #dokuwiki__aside {
-  width: 23%;
-  margin: 0 2% 0 0;
   padding: 0;
 }
 #IE6 .not-header {
@@ -75,7 +93,27 @@
     .small;
 }
 
+input[type="text"],
+input[type="number"],
+input[type="password"],
+input[type="date"],
+input[type="week"],
+input[type="phone"],
+input[type="email"] {
+  .form-control;
+  font-weight: 400;
+}
+
+.dokuwiki span.curid a {
+  .text-muted;
+  font-weight: normal;
+}
+
+
 @import "sidebar";
 @import "buttons";
 @import "editor";
 @import "config";
+@import "toc";
+@import "media";
+@import "search";

@@ -1,0 +1,23 @@
+#dw_toc {
+  padding: 0px;
+  margin: 0 0 @padding-base-vertical @padding-base-horizontal;
+  .panel-heading {
+    cursor: pointer;
+  }
+  ul li {
+    list-style-position: inside;
+  }
+  ul {
+    margin: 0;
+    padding: 0;
+    -webkit-padding-start: 0px;
+  }
+  #toc_contents ul {
+    ul {
+      margin-left: @padding-small-horizontal;
+    }
+    > li:not(> a) {
+      list-style-type: none;
+    }
+  }
+}

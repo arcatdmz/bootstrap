@@ -1,0 +1,85 @@
+#media_manager input[type="checkbox"] {
+    display: inline-block;
+    margin-bottom: 3px;
+}
+
+.dokuwiki #wiki__editbar .summary label,
+#media_manager label,
+.dokuwiki div.editBar .summary label {
+    vertical-align: baseline;
+}
+#media_manager #media__opts label {
+    display: inline;
+}
+.dokuwiki #wiki__editbar .summary label *,
+.dokuwiki div.editBar .summary label * {
+    vertical-align: middle;
+}
+#media_manager .qq-overwrite-check {
+    float: right;
+}
+#media_manager #media__content a.select {
+    display: block;
+}
+#dw__mediasearch input[type="text"] {
+    margin-bottom: 0;
+}
+#media__tree {
+    -ms-word-break: break-all;
+        word-break: break-all;
+
+    /* Non standard for webkit */
+    word-break: break-word;
+
+    -webkit-hyphens: auto;
+       -moz-hyphens: auto;
+            hyphens: auto;
+
+    -webkit-hyphenate-before: 2;
+     -webkit-hyphenate-after: 3;
+             hyphenate-lines: 3;
+}
+
+#mediamanager__page {
+  .panelContent {
+    .actions li {
+      display: inline;
+      form {
+        display: inline-block;
+      }
+    }
+    form.options .ui-buttonset .ui-button-text {
+      padding: .3em .5em;
+    }
+  }
+  form.meta {
+    div.row {
+      margin-right: 0;
+      margin-left: 0;
+      label {
+        display: inline;
+      }
+    }
+    textarea.edit {
+      max-width: 100%;
+      margin-bottom: 0;
+    }
+    textarea.edit,
+    input {
+      width: 100%;
+    }
+    input.button {
+      margin-top: 10px;
+    }
+  }
+
+  #mediamanager__btn_update .button,
+  #mediamanager__btn_delete .button {
+    .btn-sm;
+  }
+
+  .upload,
+  .maxsize {
+    .help-block;
+  }
+}
