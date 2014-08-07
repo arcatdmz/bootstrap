@@ -19,7 +19,7 @@ th {
 
 // Baseline styles
 
-.table {
+.page table {
   width: 100%;
   max-width: 100%;
   margin-bottom: @line-height-computed;
@@ -59,7 +59,7 @@ th {
   }
 
   // Nesting
-  .table {
+  table {
     background-color: @body-bg;
   }
 }
@@ -85,7 +85,7 @@ th {
 //
 // Add borders all around the table and between all the columns.
 
-.table-bordered {
+.page table {
   border: 1px solid @table-border-color;
   > thead,
   > tbody,
@@ -168,6 +168,7 @@ table {
 // by enabling horizontal scrolling. Only applies <768px. Everything above that
 // will display normally.
 
+div.table,
 .table-responsive {
   overflow-x: auto;
 
@@ -179,7 +180,7 @@ table {
     border: 1px solid @table-border-color;
 
     // Tighten up spacing
-    > .table {
+    > table {
       margin-bottom: 0;
 
       // Ensure the content doesn't wrap
@@ -196,7 +197,7 @@ table {
     }
 
     // Special overrides for the bordered tables
-    > .table-bordered {
+    > table {
       border: 0;
 
       // Nuke the appropriate borders so that the parent can handle them
