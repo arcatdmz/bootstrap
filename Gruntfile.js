@@ -111,7 +111,7 @@ module.exports = function (grunt) {
           'js/tab.js',
           'js/affix.js'
         ],
-        dest: 'dist/js/<%= pkg.name %>.js'
+        dest: '../js/<%= pkg.name %>.js'
       }
     },
 
@@ -121,7 +121,7 @@ module.exports = function (grunt) {
       },
       core: {
         src: '<%= concat.bootstrap.dest %>',
-        dest: 'dist/js/<%= pkg.name %>.min.js'
+        dest: '../js/<%= pkg.name %>.min.js'
       },
       customize: {
         src: [
@@ -160,10 +160,11 @@ module.exports = function (grunt) {
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: '<%= pkg.name %>.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>.css.map'
+          sourceMapFilename: '../css/<%= pkg.name %>.css.map'
         },
-        src: 'less/bootstrap.less',
-        dest: 'dist/css/<%= pkg.name %>.css'
+        files: {
+          '../css/<%= pkg.name %>.css': 'less/bootstrap.less'
+        }
       },
       compileTheme: {
         options: {
@@ -171,10 +172,11 @@ module.exports = function (grunt) {
           sourceMap: true,
           outputSourceFiles: true,
           sourceMapURL: '<%= pkg.name %>-theme.css.map',
-          sourceMapFilename: 'dist/css/<%= pkg.name %>-theme.css.map'
+          sourceMapFilename: '../css/<%= pkg.name %>-theme.css.map'
         },
-        src: 'less/theme.less',
-        dest: 'dist/css/<%= pkg.name %>-theme.css'
+        files: {
+          '../css/<%= pkg.name %>-theme.css': 'less/theme.less'
+        }
       }
     },
 
@@ -195,13 +197,13 @@ module.exports = function (grunt) {
         options: {
           map: true
         },
-        src: 'dist/css/<%= pkg.name %>.css'
+        src: '../css/<%= pkg.name %>.css'
       },
       theme: {
         options: {
           map: true
         },
-        src: 'dist/css/<%= pkg.name %>-theme.css'
+        src: '../css/<%= pkg.name %>-theme.css'
       },
       docs: {
         src: 'docs/assets/css/src/docs.css'
@@ -219,8 +221,8 @@ module.exports = function (grunt) {
         csslintrc: 'less/.csslintrc'
       },
       dist: [
-        'dist/css/bootstrap.css',
-        'dist/css/bootstrap-theme.css'
+        '../css/bootstrap.css',
+        '../css/bootstrap-theme.css'
       ],
       examples: [
         'docs/examples/**/*.css'
@@ -241,12 +243,12 @@ module.exports = function (grunt) {
         noAdvanced: true
       },
       minifyCore: {
-        src: 'dist/css/<%= pkg.name %>.css',
-        dest: 'dist/css/<%= pkg.name %>.min.css'
+        src: '../css/<%= pkg.name %>.css',
+        dest: '../css/<%= pkg.name %>.min.css'
       },
       minifyTheme: {
-        src: 'dist/css/<%= pkg.name %>-theme.css',
-        dest: 'dist/css/<%= pkg.name %>-theme.min.css'
+        src: '../css/<%= pkg.name %>-theme.css',
+        dest: '../css/<%= pkg.name %>-theme.min.css'
       },
       docs: {
         src: [
@@ -263,7 +265,7 @@ module.exports = function (grunt) {
         banner: '<%= banner %>'
       },
       files: {
-        src: 'dist/css/*.css'
+        src: '../css/bootstrap*.css'
       }
     },
 
@@ -273,9 +275,9 @@ module.exports = function (grunt) {
       },
       dist: {
         expand: true,
-        cwd: 'dist/css/',
+        cwd: '../css/',
         src: ['*.css', '!*.min.css'],
-        dest: 'dist/css/'
+        dest: '../css/'
       },
       examples: {
         expand: true,
@@ -291,8 +293,9 @@ module.exports = function (grunt) {
 
     copy: {
       fonts: {
-        src: 'fonts/*',
-        dest: 'dist/'
+        expand: true,
+        src: './fonts/*',
+        dest: './../'
       },
       docs: {
         src: 'dist/*/*',
