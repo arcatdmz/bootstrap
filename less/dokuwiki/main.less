@@ -133,6 +133,35 @@ input[type="checkbox"] + span {
   .btn-primary;
 }
 
+.notifications > .notify,
+div.error,
+div.info,
+div.success,
+div.notify {
+  .alert;
+  padding: 5px;
+  padding-left: 30px;
+}
+div.success { .alert-success; }
+div.info { .alert-info; }
+div.error { .alert-danger; }
+div.notify { .alert-warning; }
+
+.leftalign,
+td.leftalign { .text-left; }
+.rightalign,
+td.rightalign { .text-right }
+.centeralign,
+td.centeralign { .text-center }
+.justifyalign,
+td.justifyalign { .text-justify }
+
+dt,
+dd {
+  padding: @padding-xs-vertical, @padding-xs-horizontal;
+}
+
+
 @import "sidebar";
 @import "buttons";
 @import "editor";
