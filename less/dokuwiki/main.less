@@ -22,6 +22,13 @@
     left: -0.5em;
     position: relative;
   }
+  span.curid a {
+    .text-muted;
+    font-weight: normal;
+  }
+  #login {
+    display: none;
+  }
 }
 
 #dokuwiki__top {
@@ -31,36 +38,10 @@
   }
 }
 
-#dw__register,
-#dw__login {
-  .text-left;
-}
-
-#dokuwiki__aside {
-  #IE6 & {
-    width: 23%;
-    margin: 0 2% 0 0;
-    padding: 0;
-  }
-  p {
-    margin: 0;
-  }
-}
-
 label span {
   margin-right: @padding-small-horizontal;
   position: relative;
   display: inline-block;
-}
-
-
-#IE6 #dokuwiki__content {
-  width: 75%;
-  margin: 0;
-  padding: 0;
-}
-#IE6 .not-header {
-  margin-top: 55px;
 }
 
 #helpful-links .list-group-item-text {
@@ -79,6 +60,20 @@ label span {
   margin-top: @padding-large-vertical;
 }
 
+#dokuwiki__aside p {
+  margin: 0;
+}
+
+#dokuwiki__detail div.img_detail h3 {
+  margin-top: 0;
+}
+
+#dw__register,
+#dw__profiledelete,
+#dw__login {
+  .text-left;
+}
+
 .form-horizontal {
   margin-bottom: 0;
 }
@@ -88,6 +83,7 @@ label span {
   .small;
 }
 
+select,
 input[type="text"],
 input[type="number"],
 input[type="password"],
@@ -99,19 +95,10 @@ input[type="email"] {
   font-weight: 400;
 }
 
-.dokuwiki span.curid a {
-  .text-muted;
-  font-weight: normal;
-}
-
 img.media,
 img.img_detail{
   .img-responsive();
   .img-thumbnail;
-}
-
-#dokuwiki__detail div.img_detail h3 {
-  margin-top: 0;
 }
 
 .page {
@@ -124,6 +111,28 @@ img.img_detail{
   }
 }
 
+input[type="checkbox"] + span {
+  min-height: @line-height-computed; // Ensure the input doesn't jump when there is no text
+  padding-left: @padding-xs-horizontal;
+  margin-bottom: 0;
+  font-weight: normal;
+  cursor: pointer;
+}
+#dw__recent,
+#page__revisions {
+  ul {
+    padding-left: 0;
+  }
+  input[type="checkbox"] {
+    top: 3px;
+    position: relative;
+  }
+}
+
+#dw__register input[type="submit"] {
+  .btn-primary;
+}
+
 @import "sidebar";
 @import "buttons";
 @import "editor";
@@ -131,3 +140,4 @@ img.img_detail{
 @import "toc";
 @import "media";
 @import "search";
+@import "ie";
