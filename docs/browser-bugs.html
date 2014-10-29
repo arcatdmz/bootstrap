@@ -43,12 +43,6 @@ lead: "A list of the browser bugs that Bootstrap is currently grappling with."
         </tr>
         <tr>
           <td>Firefox</td>
-          <td>Unusual default form control styles on Android</td>
-          <td><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=900871">Closed Mozilla bug #900871</a>, <a href="https://bugzilla.mozilla.org/show_bug.cgi?id=763671">Open Mozilla bug #763671</a></td>
-          <td><a href="https://github.com/twbs/bootstrap/issues/8702">#8702</a></td>
-        </tr>
-        <tr>
-          <td>Firefox</td>
           <td><code>max-width: 100%;</code> doesn't work inside tables</td>
           <td><a href="https://bugzilla.mozilla.org/show_bug.cgi?id=975632">Mozilla bug #975632</a></td>
           <td><a href="https://github.com/twbs/bootstrap/issues/10690">#10690</a></td>
@@ -73,27 +67,15 @@ lead: "A list of the browser bugs that Bootstrap is currently grappling with."
         </tr>
         <tr>
           <td>Chrome</td>
-          <td>Weird button behavior with some number <code>&lt;input&gt;</code>s</td>
-          <td><a href="https://code.google.com/p/chromium/issues/detail?id=337668">Chromium issue #337668</a></td>
-          <td><a href="https://github.com/twbs/bootstrap/issues/8350">#8350</a>, <a href="https://github.com/necolas/normalize.css/issues/283">Normalize #283</a></td>
+          <td>Clicking above <code>&lt;input type="number"&gt;</code> increment button flashes the decrement button</td>
+          <td><a href="https://code.google.com/p/chromium/issues/detail?id=419108"></a></td>
+          <td>Offshoot of <a href="https://github.com/twbs/bootstrap/issues/8350">#8350</a> &amp; <a href="https://code.google.com/p/chromium/issues/detail?id=337668">Chromium issue #337668</a></td>
         </tr>
         <tr>
           <td>Chrome</td>
           <td><code>display: table;</code> within <code>display: block;</code> forces sibling content to new line</td>
           <td><a href="https://code.google.com/p/chromium/issues/detail?id=309483">Chromium issue #309483</a></td>
           <td><a href="https://github.com/twbs/bootstrap/issues/9950">#9950</a></td>
-        </tr>
-        <tr>
-          <td>Chrome</td>
-          <td>Unwanted vertical lines when printing styled <code>&lt;select&gt;</code> on OS X</td>
-          <td><a href="https://code.google.com/p/chromium/issues/detail?id=282918">Chromium issue #282918</a></td>
-          <td><a href="https://github.com/twbs/bootstrap/issues/11245">#11245</a></td>
-        </tr>
-        <tr>
-          <td>Chrome</td>
-          <td>inline-block element collapses white-space on Windows</td>
-          <td><a href="https://code.google.com/p/chromium/issues/detail?id=329574">Chromium issue #329574</a></td>
-          <td><a href="https://github.com/twbs/bootstrap/issues/11885">#11885</a></td>
         </tr>
         <tr>
           <td>Chrome</td>
@@ -121,18 +103,23 @@ lead: "A list of the browser bugs that Bootstrap is currently grappling with."
         </tr>
         <tr>
           <td>Safari</td>
-          <td>Insufficient CSS percentage precision</td>
-          <td>(No public bug tracker)</td>
-          <td><a href="https://github.com/twbs/bootstrap/issues/9282">#9282</a></td>
+          <td>Weird button behavior with some number <code>&lt;input&gt;</code>s</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=137269">WebKit bug #137269</a></td>
+          <td><a href="https://github.com/twbs/bootstrap/issues/8350">#8350</a>, <a href="https://github.com/necolas/normalize.css/issues/283">Normalize #283</a>, <a href="https://code.google.com/p/chromium/issues/detail?id=337668">Chromium issue #337668</a></td>
         </tr>
         <tr>
           <td>Safari</td>
-          <td>Justified nav rendering bug</td>
-          <td>(No public bug tracker)</td>
+          <td><code>display: table-cell;</code> within media query renders incorrectly when resizing the window</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=138167">WebKit bug #138167</a></td>
           <td><a href="https://github.com/twbs/bootstrap/issues/9774">#9774</a></td>
+        </tr>
+        <tr>
+          <td>Safari</td>
+          <td><code>transform: translate3d(0, 0, 0);</code> iOS bug</td>
+          <td><a href="https://bugs.webkit.org/show_bug.cgi?id=138162">WebKit bug #138162</a>, <a href="http://openradar.appspot.com/18804973">Apple Safari Radar #18804973</a></td>
+          <td><a href="https://github.com/twbs/bootstrap/pull/14603">#14603</a></td>
         </tr>
       </tbody>
     </table>
   </div>
-
 </div>

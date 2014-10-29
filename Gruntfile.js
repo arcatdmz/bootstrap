@@ -26,6 +26,7 @@ module.exports = function (grunt) {
     return { sections: parser.parseFile() };
   };
   var generateRawFiles = require('./grunt/bs-raw-files-generator.js');
+  var generateCommonJSModule = require('./grunt/bs-commonjs-generator.js');
 
   // Project configuration.
   grunt.initConfig({
@@ -37,8 +38,21 @@ module.exports = function (grunt) {
             ' * Copyright 2011-<%= grunt.template.today("yyyy") %> <%= pkg.author %>\n' +
             ' * Licensed under <%= pkg.license.type %> (<%= pkg.license.url %>)\n' +
             ' */\n',
-    // NOTE: This jqueryCheck code is duplicated in customizer.js; if making changes here, be sure to update the other copy too.
-    jqueryCheck: 'if (typeof jQuery === \'undefined\') { throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery\') }\n\n',
+    // NOTE: This jqueryCheck/jqueryVersionCheck code is duplicated in customizer.js;
+    //       if making changes here, be sure to update the other copy too.
+    jqueryCheck: [
+      'if (typeof jQuery === \'undefined\') {',
+      '  throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery\')',
+      '}\n'
+    ].join('\n'),
+    jqueryVersionCheck: [
+      '+function ($) {',
+      '  var version = $.fn.jquery.split(\' \')[0].split(\'.\')',
+      '  if ((version[0] < 2 && version[1] < 9) || (version[0] == 1 && version[1] == 9 && version[2] < 1)) {',
+      '    throw new Error(\'Bootstrap\\\'s JavaScript requires jQuery version 1.9.1 or higher\')',
+      '  }',
+      '}(jQuery);\n\n'
+    ].join('\n'),
 
     // Task configuration.
     clean: {
@@ -93,7 +107,7 @@ module.exports = function (grunt) {
 
     concat: {
       options: {
-        banner: '<%= banner %>\n<%= jqueryCheck %>',
+        banner: '<%= banner %>\n<%= jqueryCheck %>\n<%= jqueryVersionCheck %>',
         stripBanners: false
       },
       bootstrap: {
@@ -124,12 +138,13 @@ module.exports = function (grunt) {
         dest: '../js/<%= pkg.name %>.min.js'
       },
       customize: {
+        // NOTE: This src list is duplicated in footer.html; if making changes here, be sure to update the other copy too.
         src: [
           'docs/assets/js/vendor/less.min.js',
           'docs/assets/js/vendor/jszip.min.js',
           'docs/assets/js/vendor/uglify.min.js',
-          'docs/assets/js/vendor/blob.js',
-          'docs/assets/js/vendor/filesaver.js',
+          'docs/assets/js/vendor/Blob.js',
+          'docs/assets/js/vendor/FileSaver.js',
           'docs/assets/js/raw-files.min.js',
           'docs/assets/js/src/customizer.js'
         ],
@@ -440,7 +455,7 @@ module.exports = function (grunt) {
   grunt.registerTask('test-js', ['jshint:core', 'jshint:test', 'jshint:grunt', 'jscs:core', 'jscs:test', 'jscs:grunt', 'qunit']);
 
   // JS distribution task.
-  grunt.registerTask('dist-js', ['concat', 'uglify', 'sed:jqueryVersion']);
+  grunt.registerTask('dist-js', ['concat', 'uglify:core', 'commonjs', 'sed:jqueryVersion']);
 
   // CSS distribution task.
   grunt.registerTask('less-compile', ['less:compileCore', 'less:compileTheme']);
@@ -463,6 +478,12 @@ module.exports = function (grunt) {
   grunt.registerTask('build-raw-files', 'Add scripts/less files to customizer.', function () {
     var banner = grunt.template.process('<%= banner %>');
     generateRawFiles(grunt, banner);
+  });
+
+  grunt.registerTask('commonjs', 'Generate CommonJS entrypoint module in dist dir.', function () {
+    var srcFiles = grunt.config.get('concat.bootstrap.src');
+    var destFilepath = '../js/npm.js';
+    generateCommonJSModule(grunt, srcFiles, destFilepath);
   });
 
   // Docs task.
