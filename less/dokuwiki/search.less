@@ -14,6 +14,7 @@
     .box-shadow(none);
     position: relative;
     border: none;
+    max-width: 400px;
 
     margin-top: 0;
     border-top-right-radius: 0;
@@ -22,6 +23,10 @@
     margin: 0;
     > li {
       list-style: none;
+      a {
+        word-wrap: break-word;
+        white-space: normal;
+      }
     }
   }
 }
