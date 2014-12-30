@@ -12,3 +12,14 @@
 .btn_secedit .button {
   .btn-xs;
 }
+
+.dokuwiki .secedit {
+  z-index: 100; // position on top of highlight bar
+  position: relative;
+}
+
+html[dir="rtl"] {
+  .dokuwiki .secedit {
+    float: left;
+  }
+}
